@@ -9,7 +9,8 @@ import UIKit
 
 class ToDoListViewController: UIViewController {
     @IBOutlet weak var toDoTBV: UITableView!
-    var arrayItem:[ItemModel] = [ItemModel]()
+    let ToDoListTableViewCell = "ToDoListTableViewCell"
+    var toDoViewModel:ToDoViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -17,12 +18,19 @@ class ToDoListViewController: UIViewController {
     
     private func setupUI(){
         configTableView()
+        bindingData()
     }
     
     
     private func configTableView(){
         toDoTBV.delegate = self
         toDoTBV.dataSource = self
+        
+    }
+    
+    func bindingData(){
+        toDoViewModel = ToDoViewModel()
+        toDoViewModel.getItemList()
         
     }
     
@@ -35,7 +43,7 @@ extension ToDoListViewController:UITableViewDelegate{
 extension ToDoListViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // So luong
-        return arrayItem.count
+        return toDoViewModel.numberOfRowsInSection()
         
     }
     

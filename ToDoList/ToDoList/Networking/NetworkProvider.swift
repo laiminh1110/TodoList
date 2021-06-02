@@ -40,10 +40,12 @@ class AlamofireRequest {
                 }
             case .failure(let error):
                 NSLog("error = \(error)")
-                let error = NSError(domain: error.localizedDescription, code: error.responseCode!, userInfo: nil)
-                completion(.failure(BaseError.requestError(title: error.domain, message: error.localizedDescription)))
+//                let error = NSError(domain: error.localizedDescription, code: "404", userInfo: nil)
+                completion(.failure(BaseError.requestError(title: "error.domain.error", message: error.localizedDescription)))
             }
             
         }
+        
+        print("curl:\(requestItem.cURLDescription())")
     }
 }
