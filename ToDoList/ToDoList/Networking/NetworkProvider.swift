@@ -11,30 +11,39 @@ import Alamofire
 class AlamofireRequest {
     static let shared = AlamofireRequest()
     private let manager = Session.default
-// Base request
-    public  func request(link: String, header: HTTPHeaders?, method: HTTPMethod, parameters: Parameters?, encoder:ParameterEncoder, interceptor:RequestInterceptor?, encoding:ParameterEncoding,convertible:URLConvertible, requestModifier: @escaping Session.RequestModifier) -> DataRequest {
-
-        let request = manager.request(link,
-                                 method: method,
-                                 parameters: parameters,
-                                 encoding: encoding,
-                                 headers: header,
-                                 interceptor: interceptor)
     
-        return request.responseData { (response) in
-            if(response.response?.statusCode == 500){
-                print("A System Error Has Occurred: \(String(describing: response.response?.statusCode))")
+    
+    // Base request
+    public  func request<T: Codable>(link: String, header:HTTPHeaders?, method:HTTPMethod, parameters: Parameters? , encoding:URLEncoding, completion: @escaping (Result<T, BaseError>) -> Void ) {
+        let requestItem = manager.request(link,
+                                          method: method,
+                                          parameters: parameters,
+                                          encoding: encoding,
+                                          headers: header)
+        
+        requestItem.responseData { (responseAF) in
+            if(responseAF.response?.statusCode == 500){
+                print("A System Error Has Occurred: \(String(describing: responseAF.response?.statusCode))")
                 return
             }
             
-            switch response.result{
-                case .success(let value):
-                    print("request success: \(value)")
-
-                case .failure(let error):
-                    print("request failure: \(error.localizedDescription)")
-
+            switch responseAF.result{
+            case .success(let value):
+                guard let results = try? JSONDecoder().decode(T.self, from: value) else {
+                    // Decode error
+                    completion(.failure(BaseError.parseResponseDataFalse(title: "parse Response Data False \(link)")))
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    completion(.success(results))
+                }
+            case .failure(let error):
+                NSLog("error = \(error)")
+                let error = NSError(domain: error.localizedDescription, code: error.responseCode!, userInfo: nil)
+                completion(.failure(BaseError.requestError(title: error.domain, message: error.localizedDescription)))
             }
+            
         }
     }
 }

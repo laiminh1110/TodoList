@@ -25,6 +25,7 @@
 		A05188F22657A7AD00578BC3 /* ToDoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A05188F02657A7AD00578BC3 /* ToDoListTableViewCell.xib */; };
 		A051890C2657AA9500578BC3 /* ToDoListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051890B2657AA9500578BC3 /* ToDoListService.swift */; };
 		A05189152657AAE300578BC3 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05189142657AAE300578BC3 /* NetworkProvider.swift */; };
+		A0A8A7EF2667815E005DBDE7 /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A8A7EE2667815E005DBDE7 /* BaseError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		A05188F02657A7AD00578BC3 /* ToDoListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoListTableViewCell.xib; sourceTree = "<group>"; };
 		A051890B2657AA9500578BC3 /* ToDoListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListService.swift; sourceTree = "<group>"; };
 		A05189142657AAE300578BC3 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		A0A8A7EE2667815E005DBDE7 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		BDB594FC9561A9C1B84CA4AB /* Pods-ToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.debug.xcconfig"; path = "Target Support Files/Pods-ToDoList/Pods-ToDoList.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +145,7 @@
 		A041DF6026575B3700C41FEA /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				A0A8A7ED2667814A005DBDE7 /* Base */,
 				A051890A2657AA6200578BC3 /* Networking */,
 				A05189092657AA5400578BC3 /* Service */,
 				A05189052657A9FE00578BC3 /* Application */,
@@ -249,6 +252,14 @@
 				A05189142657AAE300578BC3 /* NetworkProvider.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		A0A8A7ED2667814A005DBDE7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A0A8A7EE2667815E005DBDE7 /* BaseError.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		A8AF334279F1BD1F1CF55183 /* Frameworks */ = {
@@ -509,6 +520,7 @@
 				A041DF6426575B3700C41FEA /* SceneDelegate.swift in Sources */,
 				A05188E62657A28500578BC3 /* ToDoViewModel.swift in Sources */,
 				A041DF6C26575B3700C41FEA /* ToDoList.xcdatamodeld in Sources */,
+				A0A8A7EF2667815E005DBDE7 /* BaseError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
