@@ -26,7 +26,7 @@ class AlamofireRequest {
                 print("A System Error Has Occurred: \(String(describing: responseAF.response?.statusCode))")
                 return
             }
-            
+            print("curl:\(requestItem.cURLDescription())")
             switch responseAF.result{
             case .success(let value):
                 guard let results = try? JSONDecoder().decode(T.self, from: value) else {
@@ -34,7 +34,6 @@ class AlamofireRequest {
                     completion(.failure(BaseError.parseResponseDataFalse(title: "parse Response Data False \(link)")))
                     return
                 }
-                
                 DispatchQueue.main.async {
                     completion(.success(results))
                 }
@@ -46,6 +45,5 @@ class AlamofireRequest {
             
         }
         
-        print("curl:\(requestItem.cURLDescription())")
     }
 }

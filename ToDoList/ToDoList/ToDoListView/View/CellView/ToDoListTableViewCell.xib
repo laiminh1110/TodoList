@@ -22,15 +22,24 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISC-s7-sB2">
+                        <rect key="frame" x="288.5" y="16" width="26.5" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="ISC-s7-sB2" secondAttribute="trailing" constant="5" id="10m-vM-O6W"/>
                     <constraint firstItem="aNP-v4-ncT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="7oS-vl-ueK"/>
+                    <constraint firstItem="ISC-s7-sB2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ARD-KD-NTk"/>
                     <constraint firstItem="aNP-v4-ncT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="FVq-df-aEL"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="nameItem" destination="aNP-v4-ncT" id="G3p-n4-1We"/>
+                <outlet property="statusItem" destination="ISC-s7-sB2" id="Ktm-jo-EBd"/>
             </connections>
             <point key="canvasLocation" x="-74" y="104"/>
         </tableViewCell>
