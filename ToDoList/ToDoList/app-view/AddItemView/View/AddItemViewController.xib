@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -46,6 +47,16 @@
                         <segment title=""/>
                     </segments>
                 </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBG-eC-3zF">
+                    <rect key="frame" x="348" y="19.333333333333329" width="46" height="33"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                    <state key="normal" title="SAVE">
+                        <color key="titleColor" systemColor="systemRedColor"/>
+                    </state>
+                    <connections>
+                        <action selector="saveItemAction:" destination="-1" eventType="touchUpInside" id="f81-Nm-Jlc"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -56,6 +67,8 @@
                 <constraint firstItem="1Mn-xZ-hKn" firstAttribute="top" secondItem="fmc-H8-BBu" secondAttribute="bottom" constant="20" id="LP6-29-fjY"/>
                 <constraint firstItem="51n-ks-nfy" firstAttribute="top" secondItem="qIC-mP-nPC" secondAttribute="bottom" constant="38.666666666666686" id="SfC-OJ-jV1"/>
                 <constraint firstItem="1Mn-xZ-hKn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="c8l-o3-cY5"/>
+                <constraint firstItem="xBG-eC-3zF" firstAttribute="centerY" secondItem="fmc-H8-BBu" secondAttribute="centerY" id="dhw-ZB-Gs8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xBG-eC-3zF" secondAttribute="trailing" constant="20" id="fNA-cn-FHt"/>
                 <constraint firstItem="51n-ks-nfy" firstAttribute="trailing" secondItem="1Mn-xZ-hKn" secondAttribute="trailing" id="i5x-bm-vgo"/>
                 <constraint firstItem="qIC-mP-nPC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="kBG-xE-IUN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1Mn-xZ-hKn" secondAttribute="trailing" constant="20" id="oz1-PJ-cvZ"/>
@@ -68,6 +81,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

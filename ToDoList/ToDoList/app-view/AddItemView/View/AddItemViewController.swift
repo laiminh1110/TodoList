@@ -7,44 +7,55 @@
 
 import UIKit
 
+protocol AddItemDelegate {
+    func reloadTbv()
+}
+
 class AddItemViewController: UIViewController {
     @IBOutlet weak var addTitleTextField: UITextField!
     @IBOutlet weak var statusSegmentCnt: UISegmentedControl!
-    
+    var addItemViewModel:AddItemViewModel!
+    var delegate:AddItemDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-
+    
     private func setupUI(){
         setupTextField()
         setupSegment()
-        configBarBtnItem()
+        bindingData()
     }
     
+    private func bindingData(){
+        addItemViewModel = AddItemViewModel()
+        addItemViewModel.didCreateSuccess = { [weak self ] str in
+            self?.delegate?.reloadTbv()
+        }
+    }
     
     private func setupTextField(){
-        self.addTitleTextField.delegate = self
+        self.addTitleTextField.becomeFirstResponder()
     }
     
     private func setupSegment(){
+        self.statusSegmentCnt = UISegmentedControl(items: ["TODO","DOING","DONE"])
+//        statusSegmentCnt.
+    }
+    
+
+    
+    private func callAPICreateItem(name:String,status:Status){
+        self.addItemViewModel.saveItem(name: name, status: status)
         
     }
     
-    private func configBarBtnItem(){
-        let saveBarBtn = UIBarButtonItem(title: "SAVE", style: .done , target: self, action: #selector(addTapped(barBtnItem:)))
-        saveBarBtn.tintColor = .systemRed
-        navigationItem.rightBarButtonItem = saveBarBtn
-        
-
-    }
-    
-    @objc func addTapped(barBtnItem:UIBarButtonItem){
-        print("show view controller add item")
-
+    @IBAction func saveItemAction(_ sender: Any) {
+        let textInput = addTitleTextField.text!
+        if !textInput.isEmpty   {
+            callAPICreateItem(name: textInput, status: .DONE)
+        }
     }
 }
 
-extension AddItemViewController:UITextFieldDelegate{
-    
-}

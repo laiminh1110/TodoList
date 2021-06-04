@@ -27,6 +27,8 @@
 		A05189152657AAE300578BC3 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05189142657AAE300578BC3 /* NetworkProvider.swift */; };
 		A06C187F2669C7AC00D5297B /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C187D2669C7AC00D5297B /* AddItemViewController.swift */; };
 		A06C18802669C7AC00D5297B /* AddItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A06C187E2669C7AC00D5297B /* AddItemViewController.xib */; };
+		A06C188B266A09D600D5297B /* AddItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C188A266A09D600D5297B /* AddItemViewModel.swift */; };
+		A06C1890266A24B500D5297B /* ModelAddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C188F266A24B500D5297B /* ModelAddItem.swift */; };
 		A0A8A7EF2667815E005DBDE7 /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A8A7EE2667815E005DBDE7 /* BaseError.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,8 @@
 		A05189142657AAE300578BC3 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		A06C187D2669C7AC00D5297B /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		A06C187E2669C7AC00D5297B /* AddItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemViewController.xib; sourceTree = "<group>"; };
+		A06C188A266A09D600D5297B /* AddItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewModel.swift; sourceTree = "<group>"; };
+		A06C188F266A24B500D5297B /* ModelAddItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAddItem.swift; sourceTree = "<group>"; };
 		A0A8A7EE2667815E005DBDE7 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		BDB594FC9561A9C1B84CA4AB /* Pods-ToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.debug.xcconfig"; path = "Target Support Files/Pods-ToDoList/Pods-ToDoList.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -289,6 +293,7 @@
 		A06C187B2669C77500D5297B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A06C188A266A09D600D5297B /* AddItemViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 		A06C187C2669C78700D5297B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A06C188F266A24B500D5297B /* ModelAddItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -559,6 +565,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A05188F12657A7AD00578BC3 /* ToDoListTableViewCell.swift in Sources */,
+				A06C188B266A09D600D5297B /* AddItemViewModel.swift in Sources */,
 				A05188DE2657A26200578BC3 /* ItemModel.swift in Sources */,
 				A05189152657AAE300578BC3 /* NetworkProvider.swift in Sources */,
 				A05188D52657910A00578BC3 /* ToDoListViewController.swift in Sources */,
@@ -566,6 +573,7 @@
 				A041DF6226575B3700C41FEA /* AppDelegate.swift in Sources */,
 				A041DF6426575B3700C41FEA /* SceneDelegate.swift in Sources */,
 				A05188E62657A28500578BC3 /* ToDoViewModel.swift in Sources */,
+				A06C1890266A24B500D5297B /* ModelAddItem.swift in Sources */,
 				A041DF6C26575B3700C41FEA /* ToDoList.xcdatamodeld in Sources */,
 				A0A8A7EF2667815E005DBDE7 /* BaseError.swift in Sources */,
 				A06C187F2669C7AC00D5297B /* AddItemViewController.swift in Sources */,

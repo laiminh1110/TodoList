@@ -19,4 +19,20 @@ class ToDoListService {
             completion(result)
         }
     }
+    
+    func createNewItem(link:String, name:String, status:Status, completion:@escaping(Result<AddModel, BaseError>)->Void){
+        let header: HTTPHeaders = [
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept-Language": "en"
+        ]
+        
+        let paramsBody = [
+            "name": name,
+            "status": status.result,
+        ] as [String : Any]
+        
+        request.request(link: link, header: header, method: .post, parameters: paramsBody, encoding: .httpBody) { (result) in
+            completion(result)
+        }
+    }
 }

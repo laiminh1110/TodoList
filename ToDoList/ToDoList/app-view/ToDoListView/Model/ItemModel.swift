@@ -8,11 +8,14 @@
 
 import Foundation
 
-enum Status {
-    case todo
-    case doing
-    case done
+enum Status:String {
+    case TODO   = "TODO"
+    case DOING  = "DOING"
+    case DONE   = "DONE"
     
+    var result: String {
+        return self.rawValue
+    }
 }
 
 struct BaseModel:Codable {

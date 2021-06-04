@@ -60,7 +60,10 @@ class ToDoListViewController: UIViewController {
     
     @objc func addTapped(barBtnItem:UIBarButtonItem){
         let addVC = AddItemViewController(nibName: "AddItemViewController", bundle: nil)
-        self.navigationController?.pushViewController(addVC, animated: true)
+        addVC.modalTransitionStyle = .coverVertical
+        addVC.modalPresentationStyle = .popover
+        addVC.delegate = self
+        self.navigationController?.present(addVC, animated: true, completion: nil)
     }
         
     @objc func handleRefresh(refreshControl: UIRefreshControl) {
@@ -91,6 +94,15 @@ extension ToDoListViewController:UITableViewDataSource{
         cell.configCell(data: toDoViewModel.cellForRowAt(indexPath: indexPath))
         
         return cell
+    }
+    
+}
+
+
+extension ToDoListViewController:AddItemDelegate{
+    func reloadTbv() {
+        fetchDataListView()
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
