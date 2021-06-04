@@ -25,6 +25,8 @@
 		A05188F22657A7AD00578BC3 /* ToDoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A05188F02657A7AD00578BC3 /* ToDoListTableViewCell.xib */; };
 		A051890C2657AA9500578BC3 /* ToDoListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051890B2657AA9500578BC3 /* ToDoListService.swift */; };
 		A05189152657AAE300578BC3 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05189142657AAE300578BC3 /* NetworkProvider.swift */; };
+		A06C187F2669C7AC00D5297B /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C187D2669C7AC00D5297B /* AddItemViewController.swift */; };
+		A06C18802669C7AC00D5297B /* AddItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A06C187E2669C7AC00D5297B /* AddItemViewController.xib */; };
 		A0A8A7EF2667815E005DBDE7 /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A8A7EE2667815E005DBDE7 /* BaseError.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		A05188F02657A7AD00578BC3 /* ToDoListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoListTableViewCell.xib; sourceTree = "<group>"; };
 		A051890B2657AA9500578BC3 /* ToDoListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListService.swift; sourceTree = "<group>"; };
 		A05189142657AAE300578BC3 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		A06C187D2669C7AC00D5297B /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		A06C187E2669C7AC00D5297B /* AddItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemViewController.xib; sourceTree = "<group>"; };
 		A0A8A7EE2667815E005DBDE7 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		BDB594FC9561A9C1B84CA4AB /* Pods-ToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.debug.xcconfig"; path = "Target Support Files/Pods-ToDoList/Pods-ToDoList.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,12 +149,12 @@
 		A041DF6026575B3700C41FEA /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				A06C18752669C6AA00D5297B /* app-view */,
 				A0A8A7ED2667814A005DBDE7 /* Base */,
 				A051890A2657AA6200578BC3 /* Networking */,
 				A05189092657AA5400578BC3 /* Service */,
 				A05189052657A9FE00578BC3 /* Application */,
 				A05188EA2657A50400578BC3 /* app-UI */,
-				A05188D92657A1F200578BC3 /* ToDoListView */,
 				A041DF6D26575B3800C41FEA /* Assets.xcassets */,
 				A041DF7226575B3800C41FEA /* Info.plist */,
 				A041DF6A26575B3700C41FEA /* ToDoList.xcdatamodeld */,
@@ -252,6 +256,48 @@
 				A05189142657AAE300578BC3 /* NetworkProvider.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		A06C18752669C6AA00D5297B /* app-view */ = {
+			isa = PBXGroup;
+			children = (
+				A06C18792669C6DF00D5297B /* AddItemView */,
+				A05188D92657A1F200578BC3 /* ToDoListView */,
+			);
+			path = "app-view";
+			sourceTree = "<group>";
+		};
+		A06C18792669C6DF00D5297B /* AddItemView */ = {
+			isa = PBXGroup;
+			children = (
+				A06C187C2669C78700D5297B /* Model */,
+				A06C187B2669C77500D5297B /* ViewModel */,
+				A06C187A2669C76D00D5297B /* View */,
+			);
+			path = AddItemView;
+			sourceTree = "<group>";
+		};
+		A06C187A2669C76D00D5297B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A06C187D2669C7AC00D5297B /* AddItemViewController.swift */,
+				A06C187E2669C7AC00D5297B /* AddItemViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A06C187B2669C77500D5297B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A06C187C2669C78700D5297B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A0A8A7ED2667814A005DBDE7 /* Base */ = {
@@ -382,6 +428,7 @@
 			files = (
 				A041DF7126575B3800C41FEA /* LaunchScreen.storyboard in Resources */,
 				A041DF6E26575B3800C41FEA /* Assets.xcassets in Resources */,
+				A06C18802669C7AC00D5297B /* AddItemViewController.xib in Resources */,
 				A041DF6926575B3700C41FEA /* Main.storyboard in Resources */,
 				A05188F22657A7AD00578BC3 /* ToDoListTableViewCell.xib in Resources */,
 			);
@@ -521,6 +568,7 @@
 				A05188E62657A28500578BC3 /* ToDoViewModel.swift in Sources */,
 				A041DF6C26575B3700C41FEA /* ToDoList.xcdatamodeld in Sources */,
 				A0A8A7EF2667815E005DBDE7 /* BaseError.swift in Sources */,
+				A06C187F2669C7AC00D5297B /* AddItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,6 +748,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R83CU7AA2G;
 				INFOPLIST_FILE = ToDoList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -720,6 +769,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R83CU7AA2G;
 				INFOPLIST_FILE = ToDoList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

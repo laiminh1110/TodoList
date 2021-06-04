@@ -30,9 +30,7 @@
                             <constraint firstItem="b06-C6-Xh0" firstAttribute="trailing" secondItem="OsI-f6-Hbv" secondAttribute="trailing" id="k7B-KE-RqH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="To Do List" id="2vR-0b-Brg">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WQm-fP-xrD"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="To Do List" id="2vR-0b-Brg"/>
                     <connections>
                         <outlet property="toDoTBV" destination="b06-C6-Xh0" id="odS-3w-vHO"/>
                     </connections>

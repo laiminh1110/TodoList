@@ -21,6 +21,7 @@ class ToDoListViewController: UIViewController {
     private func setupUI(){
         configTableView()
         configRefeshControl()
+        configBarBtnItem()
         bindingData()
     }
     
@@ -30,6 +31,12 @@ class ToDoListViewController: UIViewController {
         toDoTBV.dataSource = self
         toDoTBV.register(UINib(nibName: toDoListTableViewCell, bundle: nil), forCellReuseIdentifier: toDoListTableViewCell)
         
+    }
+    
+    private func configBarBtnItem(){
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped(barBtnItem:)))
+        add.tintColor = .red
+        navigationItem.rightBarButtonItem = add
     }
     
     private func configRefeshControl(){
@@ -51,6 +58,11 @@ class ToDoListViewController: UIViewController {
         toDoViewModel.getItemList()
     }
     
+    @objc func addTapped(barBtnItem:UIBarButtonItem){
+        let addVC = AddItemViewController(nibName: "AddItemViewController", bundle: nil)
+        self.navigationController?.pushViewController(addVC, animated: true)
+    }
+        
     @objc func handleRefresh(refreshControl: UIRefreshControl) {
         // Refresh the data here
         print("pull to refresh")

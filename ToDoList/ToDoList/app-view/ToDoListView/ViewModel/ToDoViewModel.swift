@@ -27,7 +27,8 @@ class ToDoViewModel {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept-Language": "en"
         ]
-        let link = "http://localhost:3001/todo/search"
+        
+        let link = "http://10.100.10.95:3001/todo/search"
         self.service.getListItem(link: link, header: header, parameters: nil, encoding: .httpBody) { [weak self] result in
             guard let strongSelf = self else { return }
             switch result{
