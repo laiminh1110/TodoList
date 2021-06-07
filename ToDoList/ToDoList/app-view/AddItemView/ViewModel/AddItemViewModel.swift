@@ -19,12 +19,12 @@ class AddItemViewModel {
     }
     
     func saveItem(name:String,status:Status) {
-        let link = "http://10.100.10.95:3001/todo/create"
+        let link = "http://10.100.10.37:3001/todo/create"
         service.createNewItem(link: link, name: name, status: status) { [weak self] result in
 
             switch result{
             case .success(let itemRes):
-                self?.didCreateSuccess?("thành công")
+                self?.didCreateSuccess?(itemRes.data.message)
             case .failure(let error):
                 self?.needShowError?(error)
 

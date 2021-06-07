@@ -29,6 +29,8 @@ class ToDoListViewController: UIViewController {
     private func configTableView(){
         toDoTBV.delegate = self
         toDoTBV.dataSource = self
+        toDoTBV.rowHeight = 44;
+
         toDoTBV.register(UINib(nibName: toDoListTableViewCell, bundle: nil), forCellReuseIdentifier: toDoListTableViewCell)
         
     }

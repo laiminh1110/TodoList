@@ -40,11 +40,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="51n-ks-nfy">
-                    <rect key="frame" x="20" y="201" width="374" height="32"/>
+                    <rect key="frame" x="20" y="186.33333333333334" width="374" height="32"/>
                     <segments>
-                        <segment title="First"/>
-                        <segment title="Second"/>
-                        <segment title=""/>
+                        <segment title="DONE"/>
+                        <segment title="DOING"/>
+                        <segment title="TODO"/>
                     </segments>
                 </segmentedControl>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBG-eC-3zF">
@@ -63,13 +63,14 @@
             <constraints>
                 <constraint firstItem="fmc-H8-BBu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="4B9-X6-Ht2"/>
                 <constraint firstItem="qIC-mP-nPC" firstAttribute="top" secondItem="fmc-H8-BBu" secondAttribute="bottom" constant="82.333333333333343" id="9Ds-Hg-9Sx"/>
-                <constraint firstItem="51n-ks-nfy" firstAttribute="leading" secondItem="1Mn-xZ-hKn" secondAttribute="leading" id="DNy-b7-7vt"/>
                 <constraint firstItem="1Mn-xZ-hKn" firstAttribute="top" secondItem="fmc-H8-BBu" secondAttribute="bottom" constant="20" id="LP6-29-fjY"/>
-                <constraint firstItem="51n-ks-nfy" firstAttribute="top" secondItem="qIC-mP-nPC" secondAttribute="bottom" constant="38.666666666666686" id="SfC-OJ-jV1"/>
+                <constraint firstItem="51n-ks-nfy" firstAttribute="firstBaseline" secondItem="qIC-mP-nPC" secondAttribute="baseline" constant="50" id="P3E-av-A4j"/>
+                <constraint firstItem="51n-ks-nfy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="YxG-zJ-sLL"/>
                 <constraint firstItem="1Mn-xZ-hKn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="c8l-o3-cY5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="51n-ks-nfy" secondAttribute="trailing" constant="20" id="cPU-Us-yxU"/>
                 <constraint firstItem="xBG-eC-3zF" firstAttribute="centerY" secondItem="fmc-H8-BBu" secondAttribute="centerY" id="dhw-ZB-Gs8"/>
+                <constraint firstItem="51n-ks-nfy" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="edR-OL-iOx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xBG-eC-3zF" secondAttribute="trailing" constant="20" id="fNA-cn-FHt"/>
-                <constraint firstItem="51n-ks-nfy" firstAttribute="trailing" secondItem="1Mn-xZ-hKn" secondAttribute="trailing" id="i5x-bm-vgo"/>
                 <constraint firstItem="qIC-mP-nPC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="kBG-xE-IUN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1Mn-xZ-hKn" secondAttribute="trailing" constant="20" id="oz1-PJ-cvZ"/>
                 <constraint firstItem="fmc-H8-BBu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="rB2-GN-eIe"/>

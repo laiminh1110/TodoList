@@ -28,7 +28,7 @@ class ToDoViewModel {
             "Accept-Language": "en"
         ]
         
-        let link = "http://10.100.10.95:3001/todo/search"
+        let link = "http://10.100.10.37:3001/todo/search"
         self.service.getListItem(link: link, header: header, parameters: nil, encoding: .httpBody) { [weak self] result in
             guard let strongSelf = self else { return }
             switch result{
@@ -45,7 +45,6 @@ class ToDoViewModel {
     
     func numberOfRowsInSection() -> Int {
         return listItem.count
-
     }
     
     func cellForRowAt(indexPath: IndexPath) -> ItemModel {
