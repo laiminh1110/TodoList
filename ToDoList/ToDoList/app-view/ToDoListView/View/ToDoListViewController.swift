@@ -81,6 +81,7 @@ class ToDoListViewController: UIViewController {
         let data:ItemModel = toDoViewModel.cellForRowAt(indexPath: indexPath)
         self.toDoViewModel.removeItemWith(id: data.id) { (str) in
             print("Delete Item \(data.id) -> \(str) ")
+            self.toDoViewModel.listItem.remove(at: indexPath.item)
             self.toDoTBV.deleteRows(at: [indexPath], with: .left)
         }
     }
@@ -95,7 +96,6 @@ extension ToDoListViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completionHandler) in
             // delete the item here
-            self.toDoViewModel.listItem.remove(at: indexPath.row)
             self.removeItemAt(indexPath: indexPath)
             print("index path of delete: \(indexPath)")
             completionHandler(true)
