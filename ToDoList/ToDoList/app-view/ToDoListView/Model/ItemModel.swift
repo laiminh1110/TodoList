@@ -18,6 +18,16 @@ enum Status:String {
     }
 }
 
+struct RemoveBaseModel:Codable {
+    let code:Int
+    let data:dataRemoveBase
+
+}
+
+struct dataRemoveBase:Codable {
+    let message:String
+}
+
 struct BaseModel:Codable {
     let code:Int
     let data:dataBase

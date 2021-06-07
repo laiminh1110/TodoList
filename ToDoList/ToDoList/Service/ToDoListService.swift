@@ -20,6 +20,18 @@ class ToDoListService {
         }
     }
     
+    func deleteItem(id:Int, completion:@escaping(Result<RemoveBaseModel, BaseError>)->Void){
+        let link = "http://10.100.10.37:3001/todo/delete/" + "\(id)"
+        let header: HTTPHeaders = [
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept-Language": "en"
+        ]
+        
+        request.request(link: link, header: header, method: .delete, parameters: nil, encoding: .default) { (result) in
+            completion(result)
+        }
+    }
+    
     func createNewItem(link:String, name:String, status:Status, completion:@escaping(Result<AddModel, BaseError>)->Void){
         let header: HTTPHeaders = [
             "Content-Type": "application/x-www-form-urlencoded",

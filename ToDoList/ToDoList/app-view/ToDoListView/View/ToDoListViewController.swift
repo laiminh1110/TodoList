@@ -29,10 +29,8 @@ class ToDoListViewController: UIViewController {
     private func configTableView(){
         toDoTBV.delegate = self
         toDoTBV.dataSource = self
-        toDoTBV.rowHeight = 44;
-
+        toDoTBV.rowHeight = 80;
         toDoTBV.register(UINib(nibName: toDoListTableViewCell, bundle: nil), forCellReuseIdentifier: toDoListTableViewCell)
-        
     }
     
     private func configBarBtnItem(){
@@ -67,11 +65,11 @@ class ToDoListViewController: UIViewController {
         addVC.delegate = self
         self.navigationController?.present(addVC, animated: true, completion: nil)
     }
-        
+    
     @objc func handleRefresh(refreshControl: UIRefreshControl) {
         // Refresh the data here
         print("pull to refresh")
-            fetchDataListView()
+        fetchDataListView()
         DispatchQueue.main.async {
             if refreshControl.isRefreshing {
                 refreshControl.endRefreshing()
@@ -79,10 +77,37 @@ class ToDoListViewController: UIViewController {
         }
     }
     
+    private func removeItemAt(indexPath:IndexPath){
+        let data:ItemModel = toDoViewModel.cellForRowAt(indexPath: indexPath)
+        self.toDoViewModel.removeItemWith(id: data.id) { (str) in
+            print("Delete Item \(data.id) -> \(str) ")
+            self.toDoTBV.deleteRows(at: [indexPath], with: .left)
+        }
+    }
+    
 }
 
 extension ToDoListViewController:UITableViewDelegate{
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completionHandler) in
+            // delete the item here
+            self.toDoViewModel.listItem.remove(at: indexPath.row)
+            self.removeItemAt(indexPath: indexPath)
+            print("index path of delete: \(indexPath)")
+            completionHandler(true)
+
+        }
+        deleteAction.image = UIImage(systemName: "trash")
+        deleteAction.backgroundColor = .systemRed
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = false
+
+        return configuration
+    }
 }
 
 extension ToDoListViewController:UITableViewDataSource{
@@ -94,10 +119,8 @@ extension ToDoListViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: toDoListTableViewCell, for: indexPath) as! ToDoListTableViewCell
         cell.configCell(data: toDoViewModel.cellForRowAt(indexPath: indexPath))
-        
         return cell
     }
-    
 }
 
 
@@ -106,5 +129,4 @@ extension ToDoListViewController:AddItemDelegate{
         fetchDataListView()
         self.dismiss(animated: true, completion: nil)
     }
-    
 }

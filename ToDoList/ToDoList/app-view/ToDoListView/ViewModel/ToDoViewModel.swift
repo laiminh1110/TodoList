@@ -15,8 +15,8 @@ class ToDoViewModel {
     var needReloadTableView: (() -> Void)?
     var needShowError: ((BaseError) -> Void)?
     // Datasource
-     var listItem: [ItemModel] = []
-
+    var listItem: [ItemModel] = []
+    
     init() {
         // Turn on is test is true if you need test for API
         self.service = ToDoListService()
@@ -37,11 +37,22 @@ class ToDoViewModel {
                 strongSelf.needReloadTableView?()
             case .failure(let error):
                 strongSelf.needShowError?(error)
-
+                
             }
         }
     }
     
+    func removeItemWith(id:Int, completion:@escaping (String)->Void )  {
+        self.service.deleteItem(id: id) { [weak self] result in
+            switch result{
+            case .success(let data):
+                completion(data.data.message)
+            case .failure(let error):
+                self?.needShowError?(error)
+                
+            }
+        }
+    }
     
     func numberOfRowsInSection() -> Int {
         return listItem.count
