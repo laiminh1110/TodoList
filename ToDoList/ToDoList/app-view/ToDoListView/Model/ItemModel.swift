@@ -8,11 +8,12 @@
 
 import Foundation
 
-enum Status:String {
+enum Status:String, CaseIterable, Codable {
     case TODO   = "TODO"
     case DOING  = "DOING"
     case DONE   = "DONE"
-    
+    static let allValues = [TODO, DOING, DONE]
+
     var result: String {
         return self.rawValue
     }
@@ -42,6 +43,6 @@ struct dataBase:Codable {
 struct ItemModel:Codable {
     let id:Int
     let name:String
-    let status:String
+    let status:Status
     
 }

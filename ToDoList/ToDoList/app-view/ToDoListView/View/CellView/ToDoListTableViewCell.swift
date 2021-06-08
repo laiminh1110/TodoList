@@ -22,6 +22,6 @@ class ToDoListTableViewCell: UITableViewCell {
     
     func configCell(data:ItemModel)  {
         self.nameItem.text = data.name
-        self.statusItem.text = data.status
+        self.statusItem.text = data.status.result
     }
 }

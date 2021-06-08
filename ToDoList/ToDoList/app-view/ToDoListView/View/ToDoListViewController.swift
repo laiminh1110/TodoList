@@ -86,6 +86,15 @@ class ToDoListViewController: UIViewController {
         }
     }
     
+    
+    private func editItemAt(indexPath:IndexPath){
+        let data:ItemModel = toDoViewModel.cellForRowAt(indexPath: indexPath)
+        let vc = UIStoryboard.init(name: "EditViewController", bundle: nil).instantiateViewController(withIdentifier: "EditViewController") as! EditViewController
+        vc.delegate = self
+        vc.dataItem = data
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 extension ToDoListViewController:UITableViewDelegate{
@@ -101,9 +110,20 @@ extension ToDoListViewController:UITableViewDelegate{
             completionHandler(true)
 
         }
+        
+        
+        let editAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completionHandler) in
+            self.editItemAt(indexPath: indexPath)
+            completionHandler(true)
+
+        }
+        
+        
+        editAction.image = UIImage(named: "edit11")
+        editAction.backgroundColor = .systemBlue
         deleteAction.image = UIImage(systemName: "trash")
         deleteAction.backgroundColor = .systemRed
-        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction,editAction])
         configuration.performsFirstActionWithFullSwipe = false
 
         return configuration
@@ -128,5 +148,11 @@ extension ToDoListViewController:AddItemDelegate{
     func reloadTbv() {
         fetchDataListView()
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ToDoListViewController:EditItemDelegate{
+    func backToRootVC() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
