@@ -154,5 +154,7 @@ extension ToDoListViewController:AddItemDelegate{
 extension ToDoListViewController:EditItemDelegate{
     func backToRootVC() {
         self.navigationController?.popToRootViewController(animated: true)
+        fetchDataListView()
+
     }
 }

@@ -20,6 +20,23 @@ class ToDoListService {
         }
     }
     
+    func editItemTask(id:Int, title:String, status:Status, completion:@escaping(Result<EditBaseModel, BaseError>)->Void){
+        let link = "http://10.100.10.37:3001/todo/update?id=\(id)"
+        let header: HTTPHeaders = [
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept-Language": "en"
+        ]
+        
+        let paramsBody = [
+            "name": title,
+            "status": status.result,
+        ] as [String : Any]
+        
+        request.request(link: link, header: header, method: .put, parameters: paramsBody, encoding: .default) { (result) in
+            completion(result)
+        }
+    }
+    
     func deleteItem(id:Int, completion:@escaping(Result<RemoveBaseModel, BaseError>)->Void){
         let link = "http://10.100.10.37:3001/todo/delete/" + "\(id)"
         let header: HTTPHeaders = [

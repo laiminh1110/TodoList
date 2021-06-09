@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 class AddItemViewModel {
     let service: ToDoListService
     var didCreateSuccess: ((String) -> Void)?
